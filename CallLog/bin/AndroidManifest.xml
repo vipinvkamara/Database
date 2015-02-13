@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.androidexample.calllog"
+    android:versionCode="1"
+    android:versionName="1.0" >
+       
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" android:name="com.androidexample.calllog.Controller">
+        <activity
+            android:name="com.androidexample.calllog.CallList"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<action android:name="android.intent.action.DELETE" />
+				<category android:name="android.intent.category.DEFAULT" />  
+				<data android:scheme="com.androidexample.broadcastreceiver" />
+			</intent-filter>
+        </activity>
+        <activity android:name="com.androidexample.calllog.CallDetailServer"  android:screenOrientation="portrait" android:label="CallDetail" ></activity>
+        <receiver android:name="com.androidexample.calllog.IncomingCall">   
+                <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                </intent-filter>
+        </receiver>
+        <receiver android:name="com.androidexample.calllog.OutgoingCall">   
+                <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                </intent-filter>
+        </receiver>
+        <receiver android:name="com.androidexample.calllog.CallDurationReceiver">
+	       <intent-filter>
+	           <action android:name="android.intent.action.PHONE_STATE" />
+	       </intent-filter>
+       </receiver>
+    </application>
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
+    
+    
+</manifest>

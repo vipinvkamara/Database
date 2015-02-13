@@ -1,0 +1,8 @@
+package com.example.listpreferance;
+
+import android.support.v7.app.ActionBarActivity;
+
+public class UserSettingActivity extends ActionBarActivity {
+
+
+}

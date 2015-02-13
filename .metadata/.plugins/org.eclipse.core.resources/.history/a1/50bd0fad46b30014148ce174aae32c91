@@ -1,0 +1,34 @@
+package com.vipin.demoservice;
+
+import android.app.Service;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+
+public class MyService extends Service {
+	@Override
+	public void onCreate() {
+		// TODO Auto-generated method stub
+		System.out.println("Service is Created");
+		super.onCreate();
+	}
+
+	@Override
+	public IBinder onBind(Intent intent) {
+		System.out.println("Service Bounded");
+		return null;
+	}
+	@Override
+	public void unbindService(ServiceConnection conn) {
+		System.out.println("Service unBounded");
+		super.unbindService(conn);
+	}
+	
+	@Override
+	public void onDestroy() {
+		// TODO Auto-generated method stub
+		System.out.println("Service is destrory");
+		super.onDestroy();
+	}
+
+}

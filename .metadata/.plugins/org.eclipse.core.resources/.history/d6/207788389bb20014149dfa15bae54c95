@@ -1,0 +1,8 @@
+package com.example.map;
+
+
+
+public class MainActivity extends Activity {
+
+
+}

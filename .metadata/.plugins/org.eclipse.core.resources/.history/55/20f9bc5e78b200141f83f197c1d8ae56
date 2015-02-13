@@ -1,0 +1,5 @@
+package com.example.cursoradapter;
+
+public class CountriesDbAdapter {
+
+}
